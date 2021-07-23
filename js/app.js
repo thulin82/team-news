@@ -25,7 +25,9 @@ document.getElementById('t-change-btn').addEventListener('click', (e) => {
     }
     ui.updateTeam(team);
 
-    $('#locationModal').modal('hide'); //Get rid of this jQuery
+    let myModal = bootstrap.Modal.getInstance(document.querySelector("#locationModal"));
+    myModal.hide();
+
 });
 
 document.getElementById('t-search-btn').addEventListener('click', (e) => {
@@ -36,7 +38,6 @@ document.getElementById('t-search-btn').addEventListener('click', (e) => {
 function teamSearch(team){
     sofa.teamSearch(team)
     .then(results => {
-        console.log(results);
         ui.populateSearchResult(results);
     })
     .catch(err => console.log(err));
