@@ -3,6 +3,8 @@ class UI {
         this.searchResult = document.getElementById('search-results');
         this.navBarTeam = document.getElementById('t-current-team');
         this.teamName = document.getElementById('t-team-name');
+        this.managerName = document.getElementById('t-team-manager');
+        this.loader = document.getElementById('loader');
     }
 
     populateSearchResult(teams) {
@@ -24,7 +26,16 @@ class UI {
         this.navBarTeam.textContent = team;
     }
 
-    populateStartPage(name, id) {
-        this.teamName.textContent = name;
+    populateStartPage(results) {
+        this.teamName.textContent = results.teams.team.fullName;
+        this.managerName.textContent = results.teams.team.manager.name;
+    }
+
+    loaderOn() {
+        this.loader.style.display = 'block'
+    }
+
+    loaderOff() {
+        loader.style.display = 'none'
     }
 }

@@ -4,7 +4,7 @@ const sofa = new Sofa(teamData.team, teamData.id);
 const ui = new UI();
 
 document.addEventListener('DOMContentLoaded', getCurrentTeam);
-//document.addEventListener('DOMContentLoaded', populateStartPage);
+document.addEventListener('DOMContentLoaded', populateStartPage);
 
 document.getElementById('t-change-btn').addEventListener('click', (e) => {
     var team = '';
@@ -38,8 +38,10 @@ document.getElementById('t-search-btn').addEventListener('click', (e) => {
 });
 
 function teamSearch(team){
+    ui.loaderOn();
     sofa.teamSearch(team)
     .then(results => {
+        ui.loaderOff();
         ui.populateSearchResult(results);
     })
     .catch(err => console.log(err));
@@ -51,12 +53,11 @@ function getCurrentTeam(){
 }
 
 function populateStartPage(){
-    console.log('here!');
     const data = storage.getTeamData()
     sofa.teamData(data.id)
     .then(results => {
         console.log(results);
-        ui.populateStartPage(data.team, data.id);
+        ui.populateStartPage(results);
     })
     .catch(err => console.log(err));
 }
