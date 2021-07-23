@@ -22,6 +22,23 @@ class Sofa {
         };
     }
 
+    async teamData(teamId) {
+        const response = await fetch(
+            `https://sofascore.p.rapidapi.com/teams/detail?teamId=${teamId}`, {
+	            "method": "GET",
+	            "headers": {
+		            "x-rapidapi-key": `${this.apiKey}`,
+		            "x-rapidapi-host": "sofascore.p.rapidapi.com"
+	            }
+            })
+
+        const teams = await response.json();
+
+        return {
+            teams
+        };
+    }
+
     changeTeam(team, id) {
         this.team = team;
         this.id = id;

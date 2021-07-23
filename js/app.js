@@ -4,6 +4,7 @@ const sofa = new Sofa(teamData.team, teamData.id);
 const ui = new UI();
 
 document.addEventListener('DOMContentLoaded', getCurrentTeam);
+//document.addEventListener('DOMContentLoaded', populateStartPage);
 
 document.getElementById('t-change-btn').addEventListener('click', (e) => {
     var team = '';
@@ -24,6 +25,7 @@ document.getElementById('t-change-btn').addEventListener('click', (e) => {
         storage.setTeamData(team, id);
     }
     ui.updateTeam(team);
+    populateStartPage(team, id);
 
     let myModal = bootstrap.Modal.getInstance(document.querySelector("#locationModal"));
     myModal.hide();
@@ -46,4 +48,15 @@ function teamSearch(team){
 function getCurrentTeam(){
     const data = storage.getTeamData()
     ui.updateTeam(data.team);
+}
+
+function populateStartPage(){
+    console.log('here!');
+    const data = storage.getTeamData()
+    sofa.teamData(data.id)
+    .then(results => {
+        console.log(results);
+        ui.populateStartPage(data.team, data.id);
+    })
+    .catch(err => console.log(err));
 }
