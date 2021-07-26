@@ -4,6 +4,7 @@ class UI {
         this.navBarTeam = document.getElementById('t-current-team');
         this.teamName = document.getElementById('t-team-name');
         this.managerName = document.getElementById('t-team-manager');
+        this.stadiumName = document.getElementById('t-team-stadium');
         this.loader = document.getElementById('loader');
     }
 
@@ -28,7 +29,8 @@ class UI {
 
     populateStartPage(results) {
         this.teamName.textContent = results.teams.team.fullName;
-        this.managerName.textContent = results.teams.team.manager.name;
+        this.managerName.textContent = `Manager: ${results.teams.team.manager.name}`;
+        this.stadiumName.textContent = `Stadium: ${results.teams.team.venue.stadium.name}, Capacity: ${results.teams.team.venue.stadium.capacity}`;
     }
 
     loaderOn() {
