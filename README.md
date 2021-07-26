@@ -16,4 +16,7 @@ In js/sofa.js add
 this.apiKey = 
 ```
 
+## Run
+Open index.html in your browser
+
 © Markus Thulin 2021-
