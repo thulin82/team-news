@@ -29,7 +29,11 @@ document.getElementById('t-change-btn').addEventListener('click', (e) => {
 
     let myModal = bootstrap.Modal.getInstance(document.querySelector("#locationModal"));
     myModal.hide();
+});
 
+document.getElementById('locationModal').addEventListener('hidden.bs.modal', (e) => {
+    document.getElementById('search-results').textContent = '';
+    document.getElementById('team').value = '';
 });
 
 document.getElementById('t-search-btn').addEventListener('click', (e) => {
