@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 class Storage {
     constructor() {
         this.team = '';
@@ -22,7 +23,7 @@ class Storage {
         return {
             team: this.team,
             id: this.id
-        }
+        };
     }
 
     setTeamData(team, id) {

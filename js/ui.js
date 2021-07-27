@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 class UI {
     constructor() {
         this.searchResult = document.getElementById('search-results');
@@ -15,10 +16,14 @@ class UI {
             this.searchResult.innerHTML += `
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="team_radiobutton" id="html" value="${teams.teams.teams[index].name},${teams.teams.teams[index].id}">
-                        ${teams.teams.teams[index].name}, ${teams.teams.teams[index].primaryUniqueTournament.name} - ${teams.teams.teams[index].id}
+                        <input type="radio" class="form-check-input" 
+                        name="team_radiobutton" id="html" 
+                        value="${teams.teams.teams[index].name},${teams.teams.teams[index].id}">
+                        ${teams.teams.teams[index].name}, 
+                        ${teams.teams.teams[index].primaryUniqueTournament.name} - 
+                        ${teams.teams.teams[index].id}
                     </label>
-                </div>`
+                </div>`;
         }
         this.searchResult.innerHTML += '</fieldset>';
     }
@@ -30,14 +35,15 @@ class UI {
     populateStartPage(results) {
         this.teamName.textContent = results.teams.team.fullName;
         this.managerName.textContent = `Manager: ${results.teams.team.manager.name}`;
-        this.stadiumName.textContent = `Stadium: ${results.teams.team.venue.stadium.name}, Capacity: ${results.teams.team.venue.stadium.capacity}`;
+        this.stadiumName.textContent = `Stadium: ${results.teams.team.venue.stadium.name}, 
+        Capacity: ${results.teams.team.venue.stadium.capacity}`;
     }
 
     loaderOn() {
-        this.loader.style.display = 'block'
+        this.loader.style.display = 'block';
     }
 
     loaderOff() {
-        loader.style.display = 'none'
+        this.loader.style.display = 'none';
     }
 }
