@@ -10,13 +10,22 @@ Web application built on bootstrap 5, that uses sofascore API to fetch data abou
 $ git clone git@github.com:thulin82/team-news.git
 ```
 
-### Environment variables
-In js/sofa.js add
+### Get dependencies
+
 ```
-this.apiKey = 
+$ npm install
 ```
 
-## Run
-Open index.html in your browser
+### Run backend
+
+```
+$ npm start
+```
+
+### Environment variables
+In config/config.env add
+```
+API_KEY =
+```
 
 © Markus Thulin 2021-
