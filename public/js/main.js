@@ -5,8 +5,7 @@ function populateStartPage() {
     const data = storage.getTeamData();
     sofa.teamData(data.id)
         .then(results => {
-            console.log(results);
-            ui.populateStartPage(results);
+            ui.populateStartPage(results.teams.data);
         })
         .catch(err => console.log(err));
 }

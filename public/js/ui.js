@@ -18,10 +18,10 @@ class UI {
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" 
                         name="team_radiobutton" id="html" 
-                        value="${teams.teams.teams[index].name},${teams.teams.teams[index].id}">
-                        ${teams.teams.teams[index].name}, 
-                        ${teams.teams.teams[index].primaryUniqueTournament.name} - 
-                        ${teams.teams.teams[index].id}
+                        value="${teams.teams[index].name},${teams.teams[index].id}">
+                        ${teams.teams[index].name}, 
+                        ${teams.teams[index].primaryUniqueTournament.name} - 
+                        ${teams.teams[index].id}
                     </label>
                 </div>`;
         }
@@ -33,10 +33,10 @@ class UI {
     }
 
     populateStartPage(results) {
-        this.teamName.textContent = results.teams.team.fullName;
-        this.managerName.textContent = `Manager: ${results.teams.team.manager.name}`;
-        this.stadiumName.textContent = `Stadium: ${results.teams.team.venue.stadium.name}, 
-        Capacity: ${results.teams.team.venue.stadium.capacity}`;
+        this.teamName.textContent = results.team.fullName;
+        this.managerName.textContent = `Manager: ${results.team.manager.name}`;
+        this.stadiumName.textContent = `Stadium: ${results.team.venue.stadium.name}, 
+        Capacity: ${results.team.venue.stadium.capacity}`;
     }
 
     loaderOn() {

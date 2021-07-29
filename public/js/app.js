@@ -48,7 +48,7 @@ function teamSearch(team) {
     sofa.teamSearch(team)
         .then(results => {
             ui.loaderOff();
-            ui.populateSearchResult(results);
+            ui.populateSearchResult(results.teams.data);
         })
         .catch(err => console.log(err));
 }
