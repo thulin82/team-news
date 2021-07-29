@@ -23,17 +23,9 @@ app.set('view engine', 'hbs');
 app.set("views", __dirname +"/views/layouts/");
 hbs.registerPartials(__dirname+ "/views/partials/");
 
-app.get('/', (req, res) => {
-    res.render('main');
-});
-
-app.get('/squad', (req, res) => {
-    res.render('squad');
-});
-
 app.use(express.static(path.join(__dirname, '/public')));
 
-//app.use('/', require('./routes/index'));
+app.use('/', require('./routes/index'));
 
 const PORT = process.env.PORT || 4567;
 
