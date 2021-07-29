@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 class Sofa {
     constructor(team, id) {
         this.apiKey = '';
