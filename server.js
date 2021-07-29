@@ -26,6 +26,7 @@ hbs.registerPartials(__dirname+ "/views/partials/");
 app.use(express.static(path.join(__dirname, '/public')));
 
 app.use('/', require('./routes/index'));
+app.use('/api/v1/team', require('./routes/team'));
 
 const PORT = process.env.PORT || 4567;
 
