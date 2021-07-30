@@ -21,6 +21,14 @@ class Sofa {
         return { teams };
     }
 
+    async teamSquad(teamId) {
+        const response = await fetch(`http://localhost:4567/api/v1/team/teamsquad/${teamId}`);
+
+        const teams = await response.json();
+
+        return { teams };
+    }
+
     changeTeam(team, id) {
         this.team = team;
         this.id = id;

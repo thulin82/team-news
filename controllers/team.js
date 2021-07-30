@@ -39,3 +39,21 @@ exports.teamData = async (req, res, next) => {
         console.error(error);
     });
 };
+
+exports.getSquad = async (req, res, next) => {
+    const opt = {
+        method: 'GET',
+        url: 'https://sofascore.p.rapidapi.com/teams/get-squad',
+        params: {teamId: req.params.id},
+        headers: {
+            'x-rapidapi-key': process.env.API_KEY,
+            'x-rapidapi-host': 'sofascore.p.rapidapi.com'
+        }
+    };
+
+    axios.request(opt).then(function (response) {
+        res.send({ success: true, data: response.data});
+    }).catch(function (error) {
+        console.error(error);
+    });
+};
