@@ -26,11 +26,12 @@ document.getElementById('t-change-btn').addEventListener('click', () => {
         storage.setTeamData(team, id);
     }
     ui.updateTeam(team);
-    //Refresh main page if that is showing?
+    ui.updateLinks(id);
 
     // eslint-disable-next-line no-undef
     let myModal = bootstrap.Modal.getInstance(document.querySelector("#locationModal"));
     myModal.hide();
+    window.location.replace('/'); //return to index page
 });
 
 document.getElementById('locationModal').addEventListener('hidden.bs.modal', () => {
@@ -56,4 +57,5 @@ function teamSearch(team) {
 function getCurrentTeam() {
     const data = storage.getTeamData();
     ui.updateTeam(data.team);
+    ui.updateLinks(data.id);
 }

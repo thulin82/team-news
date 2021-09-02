@@ -7,6 +7,9 @@ class UI {
         this.managerName = document.getElementById('t-team-manager');
         this.stadiumName = document.getElementById('t-team-stadium');
         this.loader = document.getElementById('loader');
+        this.homeLink = document.getElementById('home-link');
+        this.squadLink = document.getElementById('squad-link');
+        this.transfersLink = document.getElementById('transfers-link');
     }
 
     populateSearchResult(teams) {
@@ -45,5 +48,11 @@ class UI {
 
     loaderOff() {
         this.loader.style.display = 'none';
+    }
+
+    updateLinks(id) {
+        this.homeLink.setAttribute("href", `./?id=${id}`);
+        this.squadLink.setAttribute("href", `./squad?id=${id}`);
+        this.transfersLink.setAttribute("href", `./transfers?id=${id}`);
     }
 }
