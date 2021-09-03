@@ -1,5 +1,7 @@
 {{> header }}
-
-<span> various other squad stuff </span>
-
+    {{#each squad.players}}
+        <li>
+            <strong>{{ player.shirtNumber }} - {{ player.name }} - {{ player.position }}</strong>
+        </li>
+    {{/each}}
 {{> footer parameter='js/squad.js'}}
