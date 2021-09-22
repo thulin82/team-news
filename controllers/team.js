@@ -7,11 +7,11 @@ dotenv.config();
 exports.teamSearch = async (req, res, next) => {
     const opt = {
         method: 'GET',
-        url: 'https://sofascore.p.rapidapi.com/teams/search',
+        url: 'https://divanscore.p.rapidapi.com/teams/search',
         params: {name: req.params.name},
         headers: {
             'x-rapidapi-key': process.env.API_KEY,
-            'x-rapidapi-host': 'sofascore.p.rapidapi.com'
+            'x-rapidapi-host': 'divanscore.p.rapidapi.com'
         }
     };
 
@@ -25,11 +25,11 @@ exports.teamSearch = async (req, res, next) => {
 exports.teamData = async (req, res, next) => {
     const opt = {
         method: 'GET',
-        url: 'https://sofascore.p.rapidapi.com/teams/detail',
+        url: 'https://divanscore.p.rapidapi.com/teams/detail',
         params: {teamId: req.params.id},
         headers: {
             'x-rapidapi-key': process.env.API_KEY,
-            'x-rapidapi-host': 'sofascore.p.rapidapi.com'
+            'x-rapidapi-host': 'divanscore.p.rapidapi.com'
         }
     };
 
@@ -43,11 +43,11 @@ exports.teamData = async (req, res, next) => {
 exports.getSquad = async (req, res, next) => {
     const opt = {
         method: 'GET',
-        url: 'https://sofascore.p.rapidapi.com/teams/get-squad',
+        url: 'https://divanscore.p.rapidapi.com/teams/get-squad',
         params: {teamId: req.params.id},
         headers: {
             'x-rapidapi-key': process.env.API_KEY,
-            'x-rapidapi-host': 'sofascore.p.rapidapi.com'
+            'x-rapidapi-host': 'divanscore.p.rapidapi.com'
         }
     };
 
