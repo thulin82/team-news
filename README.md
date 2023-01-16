@@ -1,6 +1,6 @@
 # [Team News](https://github.com/thulin82/team-news)
 
-Web application built on bootstrap 5, that uses sofascore API to fetch data about your favourite team
+Web application built on bootstrap 5, that uses sofascore (divanscore) API to fetch data about your favourite team
 
 ## Setup
 
