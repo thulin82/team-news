@@ -25,4 +25,21 @@ router.get('/squad', (req, res) => {
     });
 });
 
+router.get('/transfers', (req, res) => {
+    const id = req.query.id;
+
+    var opt = {
+        method: 'GET',
+        url: `http://localhost:4567/api/v1/team/teamtransfers/${id}`,
+    };
+
+    axios.request(opt).then(function (resp) {
+        res.set('Content-Type', 'text/html');
+        console.log(resp.data.data);
+        res.render('transfers', {transfers: resp.data.data});
+    }).catch(function (error) {
+        console.error(error);
+    });
+});
+
 module.exports = router;
