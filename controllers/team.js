@@ -57,3 +57,21 @@ exports.getSquad = async (req, res, next) => {
         console.error(error);
     });
 };
+
+exports.getTransfers = async (req, res, next) => {
+    const opt = {
+        method: 'GET',
+        url: 'https://divanscore.p.rapidapi.com/teams/get-transfers',
+        params: {teamId: req.params.id},
+        headers: {
+            'x-rapidapi-key': process.env.API_KEY,
+            'x-rapidapi-host': 'divanscore.p.rapidapi.com'
+        }
+    };
+
+    axios.request(opt).then(function (response) {
+        res.send({ success: true, data: response.data});
+    }).catch(function (error) {
+        console.error(error);
+    });
+};

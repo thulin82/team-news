@@ -1,0 +1,7 @@
+{{> header }}
+    {{#each transfers.transfersIn}}
+        <li>
+            <strong>{{ player.name }} From {{ fromTeamName }} To {{ toTeamName }} : {{ transferFeeRaw.value }} {{ transferFeeRaw.currency }}</strong> Type:{{ type }}
+        </li>
+    {{/each}}
+{{> footer parameter='js/squad.js'}}
