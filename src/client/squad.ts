@@ -1,10 +1,9 @@
-/* eslint-disable no-undef */
 /* document.addEventListener('DOMContentLoaded', populateSquadPage);
 
 function populateSquadPage() {
     const data = storage.getTeamData();
     sofa.teamSquad(data.id)
-        .then(results => {
+        .then((results: any) => {
             console.log(results.teams.data);
             //ui.populateStartPage(results.teams.data);
         })
