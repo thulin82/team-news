@@ -2,10 +2,12 @@
   "name": "team-news",
   "version": "1.0.0",
   "description": "Web application built on bootstrap 5, that uses sofascore (divanscore) API to fetch data about your favourite team",
-  "main": "server.js",
+  "main": "dist/server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/server.js",
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "lint": "eslint . --ext .ts"
   },
   "author": "Markus Thulin",
   "license": "MIT",
@@ -14,14 +16,24 @@
     "url": "https://github.com/thulin82/team-news"
   },
   "dependencies": {
+    "axios": "^1.19.0",
     "cors": "^2.8.0",
     "dotenv": "^17.4.0",
     "express": "^5.2.0",
-    "hbs": "^4.2.0",
-    "axios": "^1.19.0"
+    "hbs": "^4.2.0"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.0",
+    "@eslint/js": "^10.0.0",
+    "@types/cors": "^2.8.0",
+    "@types/express": "^5.0.0",
+    "@types/hbs": "^4.0.0",
+    "@types/node": "^26.2.0",
+    "@typescript-eslint/eslint-plugin": "^8.67.0",
+    "@typescript-eslint/parser": "^8.67.0",
     "eslint": "^10.8.0",
-    "nodemon": "^3.1.0"
+    "globals": "^17.11.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.0"
   }
 }

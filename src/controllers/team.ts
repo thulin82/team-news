@@ -1,18 +1,24 @@
-/* eslint-disable no-unused-vars */
-const dotenv = require("dotenv");
-const axios = require("axios");
+import { Request, Response } from "express";
+import dotenv from "dotenv";
+import axios from "axios";
 
 dotenv.config();
 
-exports.teamSearch = async (req, res, next) => {
+const RAPIDAPI_HOST = "divanscore.p.rapidapi.com";
+
+function rapidApiHeaders() {
+  return {
+    "x-rapidapi-key": process.env.API_KEY,
+    "x-rapidapi-host": RAPIDAPI_HOST,
+  };
+}
+
+export const teamSearch = async (req: Request, res: Response) => {
   const opt = {
     method: "GET",
-    url: "https://divanscore.p.rapidapi.com/search",
+    url: `https://${RAPIDAPI_HOST}/search`,
     params: { q: req.params.name, type: "teams" },
-    headers: {
-      "x-rapidapi-key": process.env.API_KEY,
-      "x-rapidapi-host": "divanscore.p.rapidapi.com",
-    },
+    headers: rapidApiHeaders(),
   };
 
   axios
@@ -25,15 +31,12 @@ exports.teamSearch = async (req, res, next) => {
     });
 };
 
-exports.teamData = async (req, res, next) => {
+export const teamData = async (req: Request, res: Response) => {
   const opt = {
     method: "GET",
-    url: "https://divanscore.p.rapidapi.com/teams/detail",
+    url: `https://${RAPIDAPI_HOST}/teams/detail`,
     params: { teamId: req.params.id },
-    headers: {
-      "x-rapidapi-key": process.env.API_KEY,
-      "x-rapidapi-host": "divanscore.p.rapidapi.com",
-    },
+    headers: rapidApiHeaders(),
   };
 
   axios
@@ -46,15 +49,12 @@ exports.teamData = async (req, res, next) => {
     });
 };
 
-exports.getSquad = async (req, res, next) => {
+export const getSquad = async (req: Request, res: Response) => {
   const opt = {
     method: "GET",
-    url: "https://divanscore.p.rapidapi.com/teams/get-squad",
+    url: `https://${RAPIDAPI_HOST}/teams/get-squad`,
     params: { teamId: req.params.id },
-    headers: {
-      "x-rapidapi-key": process.env.API_KEY,
-      "x-rapidapi-host": "divanscore.p.rapidapi.com",
-    },
+    headers: rapidApiHeaders(),
   };
 
   axios
@@ -67,15 +67,12 @@ exports.getSquad = async (req, res, next) => {
     });
 };
 
-exports.getTransfers = async (req, res, next) => {
+export const getTransfers = async (req: Request, res: Response) => {
   const opt = {
     method: "GET",
-    url: "https://divanscore.p.rapidapi.com/teams/get-transfers",
+    url: `https://${RAPIDAPI_HOST}/teams/get-transfers`,
     params: { teamId: req.params.id },
-    headers: {
-      "x-rapidapi-key": process.env.API_KEY,
-      "x-rapidapi-host": "divanscore.p.rapidapi.com",
-    },
+    headers: rapidApiHeaders(),
   };
 
   axios

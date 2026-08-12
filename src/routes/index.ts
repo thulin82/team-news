@@ -1,18 +1,19 @@
-const express = require("express");
-const router = express.Router();
-const dotenv = require("dotenv");
-const axios = require("axios");
+import { Router, Request, Response } from "express";
+import dotenv from "dotenv";
+import axios from "axios";
 
 dotenv.config();
 
-router.get("/", (req, res) => {
+const router = Router();
+
+router.get("/", (req: Request, res: Response) => {
   res.render("main");
 });
 
-router.get("/squad", (req, res) => {
+router.get("/squad", (req: Request, res: Response) => {
   const id = req.query.id;
 
-  var opt = {
+  const opt = {
     method: "GET",
     url: `http://localhost:4567/api/v1/team/teamsquad/${id}`,
   };
@@ -28,10 +29,10 @@ router.get("/squad", (req, res) => {
     });
 });
 
-router.get("/transfers", (req, res) => {
+router.get("/transfers", (req: Request, res: Response) => {
   const id = req.query.id;
 
-  var opt = {
+  const opt = {
     method: "GET",
     url: `http://localhost:4567/api/v1/team/teamtransfers/${id}`,
   };
@@ -47,4 +48,4 @@ router.get("/transfers", (req, res) => {
     });
 });
 
-module.exports = router;
+export default router;
