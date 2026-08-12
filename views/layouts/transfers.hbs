@@ -1,7 +1,20 @@
 {{> header }}
-    {{#each transfers.transfersIn}}
-        <li>
-            <strong>{{ player.name }} From {{ fromTeamName }} To {{ toTeamName }} : {{ transferFeeRaw.value }} {{ transferFeeRaw.currency }}</strong> Type:{{ type }}
-        </li>
-    {{/each}}
+<h1>Transfers In:</h1>
+{{#each transfers.transfersIn}}
+<li>
+    <strong>{{ player.name }} From {{ fromTeamName }} To {{ toTeamName }} : {{ transferFeeDescription }}</strong>
+    Type:{{ type }}
+    Date:{{ prettifyDate transferDateTimestamp }}
+</li>
+{{/each}}
+</br>
+</br>
+<h1>Transfers Out:</h1>
+{{#each transfers.transfersOut}}
+<li>
+    <strong>{{ player.name }} From {{ fromTeamName }} To {{ toTeamName }} : {{ transferFeeDescription }}</strong>
+    Type:{{ type }}
+    Date:{{ prettifyDate transferDateTimestamp }}
+</li>
+{{/each}}
 {{> footer parameter='js/squad.js'}}

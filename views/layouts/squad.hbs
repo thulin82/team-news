@@ -1,7 +1,8 @@
 {{> header }}
-    {{#each squad.players}}
-        <li>
-            <strong>{{ player.shirtNumber }} - {{ player.name }} - {{ player.position }}</strong>
-        </li>
-    {{/each}}
+{{#each squad.players}}
+<li>
+    <strong>{{ player.shirtNumber }} - {{ player.name }} - {{ player.position }}</strong>
+    Contract until: {{ prettifyDate player.contractUntilTimestamp }}
+</li>
+{{/each}}
 {{> footer parameter='js/squad.js'}}
